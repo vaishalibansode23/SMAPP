@@ -79,7 +79,10 @@ public class Start {
 				int id=Integer.parseInt(br.readLine());
 				System.out.println("Enter name");
 				String name=br.readLine();
-				boolean f=StudentDao.updateStudent(id,name);
+				System.out.println("Enter city name");
+				String cName=br.readLine();
+				
+				boolean f=StudentDao.updateStudent(id,name,cName);
 				if(f)
 				{
 					System.out.println("Student is successfully updated..");

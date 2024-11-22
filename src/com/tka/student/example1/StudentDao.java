@@ -60,15 +60,16 @@ public class StudentDao {
 		}
 	
 	}
-	public static boolean updateStudent(int id,String name) throws SQLException, ClassNotFoundException {
+	public static boolean updateStudent(int id,String name,String cityName) throws SQLException, ClassNotFoundException {
 		// TODO Auto-generated method 
 		boolean f=false;
 		//jdbc code
 		Connection con=ConnectionProvider.createConnection();
-		PreparedStatement psmt=con.prepareStatement("update studentinfo set scity='pune' where sid=? && sname=?");
+		PreparedStatement psmt=con.prepareStatement("update studentinfo set scity=? where sid=? and sname=?");
 		
-		psmt.setInt(1, id);
-		psmt.setString(2, name);
+		psmt.setString(1, cityName);
+		psmt.setInt(2, id);
+		psmt.setString(3, name);
 		psmt.executeUpdate();
 		 f=true;
 		return f;
